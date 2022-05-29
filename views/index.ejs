@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="stylesheets/form.css">
+  <script src="javascripts/conn.js"></script>
+  <script>
+    function gotolog() {
+      document.getElementById("email").value=""
+      document.getElementById("pass").value=""
+      document.getElementById("cpass").value=""
+      document.getElementById("lbtn").style.backgroundColor = "blue"
+      document.getElementById("rbtn").style.backgroundColor = "grey"
+      document.getElementById("rpage").style.visibility = "hidden"
+      document.getElementById("lpage").style.visibility = "visible"
+    }
+    function gotoreg() {
+      document.getElementById("email1").value=""
+      document.getElementById("pass1").value=""
+      document.getElementById("lbtn").style.backgroundColor = "grey"
+      document.getElementById("rbtn").style.backgroundColor = "blue"
+      document.getElementById("rpage").style.visibility = "visible"
+      document.getElementById("lpage").style.visibility = "hidden"
+    }
+
+  </script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="nav">
+    <h3>STUDENT REGISTRATION DATABASE MANAGEMENT SYSTEM PROJECT</h3>
+  </div>
+  <div class="data">
+    <div class="all">
+
+      <div class="buttons" id="buttons">
+        <div style="position: relative;"><button class="btn" style="padding: 3px;background-color: tomato; visibility: hidden;" id="updatedata" onclick="sendupdate()">Update</button></div>
+        <div style="position: relative;"><button class="btn" style="padding: 3px;background-color: blue;" id="rbtn" onclick="gotoreg()">Register</button></div>
+        <div style="position: relative;"><button class="btn" style="padding: 3px;background-color: rgb(212, 29, 29); visibility: hidden;" id="delete" onclick="deleteaccount()">Delete</button></div>
+        <div style="position: relative;"><button class="btn" style="padding: 3px;background-color: gray;" id="lbtn" onclick="gotolog()">Log_In</button></div>
+        <div style="position: relative;"><button class="btn" style="padding: 3px;background-color: green; visibility: hidden;" id="lout" onclick="logout()">LogOut</button></div>
+      </div>
+      <div class="forms">
+        <div class="register" id="rpage">
+          <table>
+            <tr>
+              <td>email: </td>
+              <td><input type="email" name="email" id="email" placeholder="enter your email"></td>
+            </tr>
+            <tr>
+              <td>Password: </td>
+              <td><input type="password" name="pass" id="pass" placeholder="enter your password"></td>
+            </tr>
+            <tr>
+              <td>CPassword: </td>
+              <td><input type="password" name="cpass" id="cpass" placeholder="confirm your password"></td>
+            </tr>
+          </table>
+          <div class="add" style="padding: 10px; ">
+            <button id="register" style="padding: 2px;" onclick="register()">Sign Up</button>
+            <p>
+              If account is registered go to <span style="color:red; cursor: pointer;" onclick="gotolog()">login</span>
+              Page
+            </p>
+            <p id="warning1" style="color: darkblue;">
+
+            </p>
+          </div>
+        </div>
+        <div class="login" id="lpage">
+          <table>
+            <tr>
+              <td>email: </td>
+              <td><input type="email" name="email1" id="email1" placeholder="enter your email"></td>
+            </tr>
+            <tr>
+              <td>Password: </td>
+              <td><input type="password" name="pass1" id="pass1" placeholder="enter your password"></td>
+            </tr>
+
+          </table>
+          <div class="add" style="padding: 10px; ">
+            <button id="login" style="padding: 2px;" onclick="login()">Sign In</button>
+            <p>
+              If not registered go to <span style="color:red; cursor: pointer;" onclick="gotoreg()">register</span> Page
+            </p>
+            <p id="warning" style="color: darkblue;">
+
+            </p>
+          </div>
+
+        </div>
+        <div class="updateform" id="uform">
+          <div class="up">
+            <table>
+              <tr>
+                <td>Name: </td>
+                <td><input type="text" name="cname" id="cname" placeholder="enter your name"></td>
+              </tr>
+              <tr>
+                <td>College: </td>
+                <td><input type="text" name="college" id="college" placeholder="enter your college"></td>
+              </tr>
+              <tr>
+                <td>City: </td>
+                <td><input type="text" name="city" id="city" placeholder="enter your city"></td>
+              </tr>
+              <tr>
+                <td>DOB: </td>
+                <td><input type="text" name="dob" id="dob" placeholder="yyyy-mm-dd"></td>
+              </tr>
+              <tr>
+                <td>Mobile: </td>
+                <td><input type="text" name="mobnum" id="mobnum" placeholder="xxxxxxxxxx"></td>
+              </tr>
+              <p id="warning3"
+                style="text-align: center;width:100%;background-color: darkblue; padding: 2px; color: darkgray;position: absolute;left: 50%;transform: translateX(-50%);bottom: -50%;">
+                Hi Animesh update your info</p>
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+      <div class="info">
+        <p style="text-align: center;color:wheat;padding: 3px;height: fit-content;background-color: red;">to update your
+          information please login</p>
+      </div>
+    </div>
+    <div class="showdata">
+      <h4>Records Of Students</h4>
+      <div class="datarow" id="datarow">
+        <div class="colname">
+          <div class="email">email</div>
+          <div class="name">name</div>
+          <div class="college">college</div>
+          <div class="city">city</div>
+          <div class="dob">date of birth</div>
+          <div class="mob">mob</div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="footer">
+    <p>@ 2022 Animesh Tiwari 20118011 project under dbms</p>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  display: grid;
+  height: 99vh;
+  width: 99vw;
+  margin-top: .5vh;
+  margin-left: .5vw;
+  grid-template-columns: 100%;
+  grid-template-rows: 8% 86% 4%;
+  gap: 1%;
+  
+}
+.nav{
+  
+  background-color: whitesmoke;
+  box-shadow: 2px 3px 5px 0px gray;
+  position: relative;
+  
+}
+h4{
+  
+  text-align: center;
+  background: black;
+  color: wheat;
+  padding: 2px;
+  
+}
+.forms{
+  position: relative;
+}
+.nav > h3{
+  position: absolute;
+  top:50%;
+  width: 100%;
+  text-align: center;
+  transform: translate(0%,-50%);
+  text-shadow: 1px 1px #ff0000;
+  color: rgb(128, 138, 123);
+  text-transform: capitalize;
+}
+.data{
+  
+  
+  background-color:whitesmoke;
+  box-shadow: 2px 3px 5px 0px gray;
+  display: grid;
+  grid-template-columns: 49% 50%;
+  grid-template-rows: 100%;
+  gap: 1%;
+
+}
+.footer{
+  background-color: whitesmoke;
+  box-shadow: 2px 3px 5px 0px gray;
+  position: relative;
+}
+.footer > p{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-size: 60%;
+  color: gray;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.all{
+ display: grid;
+ grid-template-columns: 1fr;
+ grid-template-rows: 13% 77% 10%;
+ background-color: palevioletred;
+ gap: 2px; 
+}
+
+.register{
+  position: absolute;
+  top:0;
+  left:0;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+}
+.login{
+  position: absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  padding: 10px;
+
+}
+.buttons{
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+.register,.login{
+background-color: turquoise;
+}
+.form{
+  background-color: whitesmoke;
+  overflow:scroll;
+  scroll-behavior: smooth;
+  
+  padding: 5px;
+
+}
+.btn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+::-webkit-scrollbar{
+  display: none;
+}
+.showdata{
+  background-color: whitesmoke;
+  display: grid;
+  grid-template-rows: .05fr .95fr;
+  gap: 5px;
+  grid-template-columns: 1fr;
+
+  
+}
+@media only screen and (max-width: 580px) {
+  .data{
+      grid-template-rows: 49% 50%;
+      grid-template-columns: 100%;
+      gap: 1%;
+  }
+  
+}
