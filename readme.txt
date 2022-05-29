@@ -23,3 +23,5 @@ npm i http-errors
 npm i ejs
 
 To run project type nodemon ./bin/www or npm start
+
+Do not copy the code directly as there are some changes as per systems ©Animesh Tiwari
